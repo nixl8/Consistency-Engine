@@ -1,0 +1,44 @@
+{
+  "style_rules": [
+    {
+      "rule_id": "R-01",
+      "category": "Typography",
+      "instruction": "Convert double-hyphens to em-dashes (—).",
+      "pattern": "--",
+      "fix": "—"
+    },
+    {
+      "rule_id": "R-02",
+      "category": "Chemistry",
+      "instruction": "Automatically subscript chemical formulas.",
+      "pattern": "\\b(H2O|CO2|CH4|NH3|O2)\\b",
+      "map": {"H2O": "H₂O", "CO2": "CO₂", "CH4": "CH₄", "NH3": "NH₃", "O2": "O₂"}
+    },
+    {
+      "rule_id": "R-03",
+      "category": "Units",
+      "instruction": "Ensure a space between numbers and units (e.g., 10 mg).",
+      "pattern": "(\\d+)(mg|mL|kg|nm|μm)\\b"
+    },
+    {
+      "rule_id": "R-04",
+      "category": "Formalism",
+      "instruction": "Expand informal abbreviations like 'approx.' or 'info'.",
+      "pattern": "\\b(approx\\.|info|stats)\\b",
+      "map": {"approx.": "approximately", "info": "information", "stats": "statistics"}
+    },
+    {
+      "rule_id": "R-05",
+      "category": "Currency",
+      "instruction": "Format currency with leading symbols (e.g., $100).",
+      "pattern": "(\\d+)\\s?dollars"
+    },
+    {
+      "rule_id": "R-06",
+      "category": "Inclusivity",
+      "instruction": "Use gender-neutral professional titles.",
+      "pattern": "\\b(Chairman|Foreman|Policeman)\\b",
+      "map": {"Chairman": "Chair", "Foreman": "Supervisor", "Policeman": "Officer"}
+    }
+  ]
+}

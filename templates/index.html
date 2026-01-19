@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consistency Engine | Hybrid Suite</title>
+    <style>
+        :root { --neon: #00f2fe; --glass: rgba(255, 255, 255, 0.05); }
+        body { margin: 0; background: #0a0b10; color: white; font-family: 'Inter', sans-serif; display: flex; height: 100vh; overflow: hidden; }
+        
+        #sidebar { width: 280px; background: var(--glass); backdrop-filter: blur(20px); border-right: 1px solid rgba(255,255,255,0.1); padding: 30px; }
+        .rule-card { padding: 10px; border-radius: 8px; background: rgba(0,0,0,0.3); margin-bottom: 10px; border-left: 3px solid var(--neon); font-size: 0.75em; }
+
+        #main { flex: 1; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+        .controls { display: flex; gap: 15px; align-items: center; background: var(--glass); padding: 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; flex: 1; min-height: 0; }
+        .pane { background: var(--glass); border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); padding: 25px; display: flex; flex-direction: column; }
+        
+        textarea, #output { flex: 1; background: transparent; border: none; color: #cbd5e0; font-size: 1rem; line-height: 1.6; outline: none; resize: none; overflow-y: auto; white-space: pre-wrap; }
+        
+        .btn-glow { background: linear-gradient(135deg, #00f2fe, #4facfe); color: white; border: none; padding: 12px 25px; border-radius: 12px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-glow:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); }
+        
+        .glow { color: var(--neon); font-weight: bold; text-shadow: 0 0 10px var(--neon); background: rgba(0, 242, 254, 0.1); padding: 0 2px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <h2 style="color: var(--neon); margin-top: 0;">Style Bible</h2>
+    <div id="rule-list">
+        <div class="rule-card">R-01 Typography</div>
+        <div class="rule-card">R-02 Chemistry</div>
+        <div class="rule-card">R-03 Unit Spacing</div>
+        <div class="rule-card">R-04 Formalism</div>
+        <div class="rule-card">R-05 Currency</div>
+        <div class="rule-card">R-06 Inclusivity</div>
+    </div>
+</div>
+
+<div id="main">
+    <div class="controls">
+        <h2 style="margin:0; font-size: 1.2em;">Consistency <span style="color:var(--neon)">Engine</span></h2>
+        <input type="file" id="fileInput" hidden accept=".md, .docx, .txt">
+        <button class="btn-glow" style="background: rgba(255,255,255,0.1);" onclick="document.getElementById('fileInput').click()">📁 UPLOAD FILE</button>
+        <button class="btn-glow" onclick="processAll()">⚡ REFINE NOW</button>
+    </div>
+
+    <div class="grid">
+        <div class="pane">
+            <h4 style="color: #555; margin-top: 0;">INPUT (TYPE OR UPLOAD)</h4>
+            <textarea id="userInput" placeholder="Paste your text or upload a file..."></textarea>
+        </div>
+        <div class="pane">
+            <h4 style="color: #555; margin-top: 0;">REFINED OUTPUT</h4>
+            <div id="output">Waiting for stylistic analysis...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Handle File Selection
+    document.getElementById('fileInput').onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const res = await fetch('/process', { method: 'POST', body: formData });
+        const data = await res.json();
+        renderResult(data);
+    };
+
+    // Handle Manual Typing
+    async function processAll() {
+        const text = document.getElementById('userInput').value;
+        const res = await fetch('/process', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: text })
+        });
+        const data = await res.json();
+        renderResult(data);
+    }
+
+    function renderResult(data) {
+        document.getElementById('userInput').value = data.original;
+        let html = data.refined;
+        const keywords = ["—", "H₂O", "CO₂", "CH₄", "NH₃", "O₂", "approximately", "information", "mg", "mL", "kg", "nm", "$", "Chair", "Officer", "Supervisor"];
+        
+        keywords.forEach(k => {
+            const regex = new RegExp(k === "$" ? "\\$" : k, 'g');
+            html = html.replace(regex, `<span class="glow">${k}</span>`);
+        });
+        document.getElementById('output').innerHTML = html;
+    }
+</script>
+</body>
+</html>
