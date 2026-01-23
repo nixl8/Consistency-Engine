@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<?xml-stylesheet type="text/xsl" href="ptsiiiorder.xsl" ?><!DOCTYPE orders SYSTEM "ptsiiiorder153.dtd">
+<orders>
+   <order>
+      <time day="24" month="09" yr="2024" hr="11" min="51" sec="41"/>
+      <po-number>T10988098</po-number>
+      <prod-site>ESCH - Elsevier India Pvt Ltd.</prod-site>
+      <opco>OCUK - Operating Company Elsevier Ltd</opco>
+      <stage step="PROOF"/>
+      <executor type="TYPESETTER" addressee="yes">
+         <exec-code>SPIN2</exec-code>
+         <exec-name>SPI Technologies Inc.</exec-name>
+         <aff>
+            <address>SPI Building, Pascor Drive</address>
+            <address-contd>Sto. Nino, Paranaque City</address-contd>
+            <zipcode zipcode-pos="BEFORECTY">1700</zipcode>
+            <cty>Metro Manila</cty>
+            <cny>Philippines</cny>
+            <tel>+63 632 759 9603</tel>
+         </aff>
+      </executor>
+      <executor type="WAREHOUSE" addressee="no">
+         <exec-code>AIRBU</exec-code>
+         <exec-name>Air Business Limited</exec-name>
+         <aff>
+            <address>The Merlin Centre</address>
+            <address-contd>Acrewood Way</address-contd>
+            <zipcode zipcode-pos="AFTERCTY">AL4 0JY</zipcode>
+            <cty>St Albans, Hertfordshire</cty>
+            <cny>United Kingdom</cny>
+            <tel>+44(0)1727 890600</tel>
+         </aff>
+      </executor>
+      <executor type="COMPOSITOR" addressee="no">
+         <exec-code>TNQCP</exec-code>
+         <exec-name>TnQ (CPC)</exec-name>
+         <aff>
+            <address>Plot no. 4/600, 4/197, Phase II</address>
+            <address-contd>Dr. VSI Estate, Kottivakkam</address-contd>
+            <zipcode zipcode-pos="AFTERCTY">600 041</zipcode>
+            <cty>Thiruvanmiyur, Chennai</cty>
+            <cny>India</cny>
+            <tel>+91-44-24426085,6,7</tel>
+            <fax>+91-44-24426088</fax>
+         </aff>
+      </executor>
+      <item-info>
+         <language>English</language>
+         <crossmark>no</crossmark>
+         <jid>CHAOS</jid>
+         <issn>0960-0779</issn>
+         <aid>115581</aid>
+         <pii>S0960-0779(24)01133-0</pii>
+         <article-number>115581</article-number>
+         <doi>10.1016/j.chaos.2024.115581</doi>
+         <item-title>A high-quality visual image encryption algorithm utilizing the conservative chaotic system and adaptive embedding</item-title>
+         <eo-item-nr>CHAOS-D-24-00380</eo-item-nr>
+         <e-submission-item-nr>CHAOS_CHAOS-D-24-00380</e-submission-item-nr>
+         <received-date>
+            <date day="19" month="01" yr="2024"/>
+         </received-date>
+         <revised-date>
+            <date day="14" month="09" yr="2024"/>
+         </revised-date>
+         <accept-date>
+            <date day="24" month="09" yr="2024"/>
+         </accept-date>
+         <cpc>Y</cpc>
+         <in-scope-cpc type="Y"/>
+         <prd-type-as-sent>FTP</prd-type-as-sent>
+         <milestone type="ACCEPTED"/>
+         <online-version type="print"/>
+         <pit>FLA</pit>
+         <copy-edit-content required="no"/>
+         <no-mns-pages>1</no-mns-pages>
+         <no-phys-figs>0</no-phys-figs>
+         <no-bw-figs>0</no-bw-figs>
+         <no-web-colour-figs>0</no-web-colour-figs>
+         <no-colour-figs>0</no-colour-figs>
+         <no-e-components>0</no-e-components>
+         <righthand-start>N</righthand-start>
+         <copyright-status>001</copyright-status>
+         <first-author>
+            <degree>Dr.</degree>
+            <fnm>Xiaojun</fnm>
+            <snm>Tong</snm>
+         </first-author>
+         <corr-author>
+            <degree>DR</degree>
+            <fnm>Xilin</fnm>
+            <snm>Liu</snm>
+            <aff>
+               <organization>Harbin Institute of Technology</organization>
+               <inst-contd>Harbin Institute of Technology Weihai</inst-contd>
+               <cny>China</cny>
+               <ead>liu_xilin2023@163.com</ead>
+            </aff>
+         </corr-author>
+         <item-remarks>
+            <item-remark>
+               <remark-type>Editorial</remark-type>
+               <remark>MBS_IFACE 24-SEP-24
+        Copyediting level received: eMFC
+        </remark>
+               <response/>
+            </item-remark>
+         </item-remarks>
+         <revised-proof>N</revised-proof>
+         <offprint-payment payment="no"/>
+      </item-info>
+   </order>
+</orders>
